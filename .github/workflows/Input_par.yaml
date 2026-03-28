@@ -1,2 +1,53 @@
-name: Input Parametres
-on: workflow_dispatch
+name: Input Parameters
+
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment to deploy to"
+                required: true
+                default: "staging"
+                type: choice
+                options:
+                    - staging
+                    - production
+                    - development
+
+            username:
+                description: "Enter your name"
+                required: true
+                type: string
+
+            version:
+                description: "Version number"
+                required: false
+                type: string
+                default: "1.0.0"
+
+            enable_debug:
+                description: "Enable debug mode"
+                required: false
+                type: boolean
+                default: false
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Display input parameters
+              run: |
+                  echo "Environment: ${{ github.event.inputs.environment }}"
+                  echo "Username: ${{ github.event.inputs.username }}"
+                  echo "Version: ${{ github.event.inputs.version }}"
+                  echo "Debug Mode: ${{ github.event.inputs.enable_debug }}"
+
+            - name: Conditional step based on input
+              if: github.event.inputs.enable_debug == 'true'
+              run: echo "Debug mode is enabled!"
+
+            - name: Deploy to specified environment
+              run: echo "Deploying to ${{ github.event.inputs.environment }}"
