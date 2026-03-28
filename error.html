@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .error-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 5em;
+            font-weight: bold;
+            color: #f5576c;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .error-details {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .error-details h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .error-details p {
+            color: #856404;
+            font-size: 0.95em;
+            margin-bottom: 0;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-home {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-reload {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .btn-reload:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        .emoji {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="emoji">⚠️</div>
+        <div class="error-code">404</div>
+
+        <h1>Oops! Something Went Wrong</h1>
+        <p>The page you're looking for doesn't exist or an error occurred.</p>
+
+        <div class="error-details">
+            <h3>Error Details</h3>
+            <p>
+                <strong>Error Code:</strong> 404 Not Found<br>
+                <strong>Message:</strong> The requested resource could not be found<br>
+                <strong>Time:</strong> <span id="timestamp"></span>
+            </p>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-home" onclick="goHome()">Go to Home</button>
+            <button class="btn-reload" onclick="reloadPage()">Reload Page</button>
+        </div>
+    </div>
+
+    <script>
+        // Display current timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+
+        function reloadPage() {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>
