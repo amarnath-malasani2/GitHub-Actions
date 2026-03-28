@@ -1,0 +1,14 @@
+name: Step Output Demo
+
+on: workflow_dispatch
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate value
+        id: generate_step
+        run: echo "myvalue=Amar" >> $GITHUB_OUTPUT
+
+      - name: Show value
+        run: echo "Greeting from ${{ steps.generate_step.outputs.myvalue }}"
