@@ -1,5 +1,14 @@
-name: sample-pipeline
-on: 
+name: Simple Workflow
+on:
   workflow_dispatch:
-  jobs:
-    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        run: echo "checkout code"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: echo "running tests"
