@@ -1,0 +1,5 @@
+name: sample-pipeline
+on: 
+  workflow_dispatch:
+  jobs:
+    
