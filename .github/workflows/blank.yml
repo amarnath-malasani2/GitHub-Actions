@@ -1,9 +1,6 @@
 name: Deploy Static website file to s3
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
