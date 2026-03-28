@@ -12,5 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        run: echo "checkout code"
+      - name: MY_NAME
+        run: echo "${{ secrets.MY_NAME }}"
+      - name: FAMILY_NAME
+        run: echo "${{ vars.MY_FAMILY_NAME }}"
